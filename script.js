@@ -27,9 +27,12 @@ function clock(){
 }
 
 // Adding 0 and contraints to 24 hours
+let reg = /^0[0-9]$/;
+
 function validH(){
     this.value = (this.value > 12) ? (this.value - 12) : ((parseInt(this.value) === 0) ? 12 : this.value);
-    this.value = ((parseInt(this.value) < 10) ? '0' : '') + this.value;
+    // this.value = ((parseInt(this.value) < 10) ? '0' : '') + this.value;
+    this.value = ((parseInt(this.value) < 10) ? (reg.test(this.value)) ? '' : '0' : '') + this.value;
     if(this.value > 24 || this.value === NaN){
         this.value = '';
     }
@@ -37,7 +40,7 @@ function validH(){
 
 // Adding 0 and contraints to 59 minutes / seconds
 function valid(){
-    this.value = ((parseInt(this.value) < 10) ? '0' : '') + this.value;
+    this.value = ((parseInt(this.value) < 10) ? (reg.test(this.value)) ? '' : '0' : '') + this.value;
 
     if(this.value > 59 || this.value === NaN){
         this.value = '';
@@ -74,10 +77,6 @@ const btn = document.getElementById('btn').addEventListener('click', (e) => {
     
     let timeToAlarm = alarmTime - time;
     console.log(timeToAlarm);
-    
-    // 12-hour format and add 0
-    hour.value = (hour.value > 12) ? (hour.value - 12) : ((parseInt(hour.value) === 0) ? 12 : hour.value);
-    hour.value = ((parseInt(hour.value) < 10) ? '0' : '') + hour.value;
     
     if (timeToAlarm >= 0) {
         let success = document.getElementById('success').classList.add('show');
