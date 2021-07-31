@@ -13,7 +13,7 @@ and then set the alarm showing the time below near the clock
 <img src="https://github.com/codingwalls/alarm-clock/blob/main/Output%201.png" />
 <img src="https://github.com/codingwalls/alarm-clock/blob/main/Output%202.png" />
 <img src="https://github.com/codingwalls/alarm-clock/blob/main/Output%203.png" />
-
+<img src="https://github.com/codingwalls/alarm-clock/blob/main/Output%204.png" />
 
 <h3>Link</h3>
 https://codingwalls.github.io/alarm-clock/
