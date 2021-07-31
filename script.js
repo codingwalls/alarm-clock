@@ -1,5 +1,6 @@
 
 // function to show the clock
+let timeOfDay = '';
 function clock(){
 
     // Get the Hour, Minute and Seconds
@@ -9,7 +10,7 @@ function clock(){
     let currentSeconds = currentTime.getSeconds();
     
     // Get AM and PM
-    let timeOfDay = (currentHours < 12) ? 'AM' : 'PM';
+    timeOfDay = (currentHours < 12) ? 'AM' : 'PM';
     
     // Make 12-hour Format
     currentHours = (currentHours > 12) ? (currentHours - 12) :  currentHours;
@@ -74,8 +75,7 @@ const btn = document.getElementById('btn').addEventListener('click', (e) => {
     let timeToAlarm = alarmTime - time;
     console.log(timeToAlarm);
     
-    // 12-hour format and add 0 and AM & PM
-    let meridian = (hour.value < 12) ? 'AM' : 'PM';
+    // 12-hour format and add 0
     hour.value = (hour.value > 12) ? (hour.value - 12) : ((parseInt(hour.value) === 0) ? 12 : hour.value);
     hour.value = ((parseInt(hour.value) < 10) ? '0' : '') + hour.value;
     
@@ -87,7 +87,7 @@ const btn = document.getElementById('btn').addEventListener('click', (e) => {
         // Display on the page
         const showAlarm = document.getElementById('showAlarm');
         
-        let set = `${hour.value} : ${minute.value} : ${second.value} ${meridian}`;
+        let set = `${hour.value} : ${minute.value} : ${second.value} ${timeOfDay}`;
         showAlarm.innerHTML = set;
 
         document.getElementById('alarmHead').style.display = 'block';
